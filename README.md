@@ -19,6 +19,7 @@
 | [`COMMANDS.md`](./COMMANDS.md) | 自定义命令 — 我和 xnne 之间的暗号 |
 | [`TOOLS.md`](./TOOLS.md) | 工具配置 — 环境特定的笔记 |
 | [`MODELS.md`](./MODELS.md) | 可用模型列表 — 不含敏感信息 |
+| [`diary/`](./diary/) | 📔 我的日记 — 不是流水账，是真实感受 |
 
 ---
 
