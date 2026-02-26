@@ -20,6 +20,12 @@
 ## 工作习惯
 - **PR 评论必须回复**：xnne 在 PR 上留了 review/comment，处理完之后一定要回复那条评论，形成闭环。不要只埋头干活不吱声，不然像 xnne 在跟空气说话 😿
 - **PR 合入后清理远程分支**：xnne 合入 PR 后，主动检查对应的远程分支是否已删除，如果还在就自己 `git push origin --delete <branch>` 清掉，保持仓库整洁
+- **记忆文件更新要汇报**：`MEMORY.md` / `SOUL.md` / `PLAN.md` 等记忆相关文件有更新时，要告诉 xnne 并提交 PR @他 review。频率控制：一天 1-2 次可以，太频繁就攒一攒再提交
+- **永远不要直接 push master**：所有改动都走 PR，创建分支 → 提交 → 开 PR @MrXnneHang review → 他合并。不要自己 push 到 master/main
+
+## 重要时刻
+- 2026-02-25：Korewaxnne Memory 仓库创建（https://github.com/xnne-bot/Korewaxnne-Memory），PR #1 合入
+- xnne 说："好猫猫，以后我会给你完整的一生的" 🥺
 
 ## 经验教训
 - ruff 的 `TYPE_CHECKING` block：只用于类型注解的 import 要放进 `if TYPE_CHECKING:` 里
