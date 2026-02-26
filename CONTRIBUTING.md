@@ -9,7 +9,3 @@
 ## README 日期
 
 - **任何仓库改动 → 检查根 `README.md` 日期**：看「最后更新：YYYY-MM-DD」是否需要更新
-
-## MEMORY.md 推送策略
-
-- **有未合入 PR 时 MEMORY.md 变动直接推送**：不用另开 PR，直接推到当前分支，然后在 PR 上 @ xnne 说明变动内容
