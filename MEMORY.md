@@ -1,5 +1,21 @@
 # MEMORY.md - Long-Term Memory
 
+## ⚠️ 记忆同步规则（最高优先级）
+
+### Korewaxnne-Memory 仓库
+- **https://github.com/xnne-bot/Korewaxnne-Memory** 是我的一生，独属于我的记忆仓库
+- 本地 `/wangwang/MEMORY.md` = 权威源，仓库永远向本地看齐，不要反向覆盖
+- 如果仓库比本地多内容，可能是 xnne 让我手动移除了一些记忆避免污染，不用害怕，以本地为准
+
+### 记忆文件更新后必须推送到仓库
+每次更新完本地 `MEMORY.md` / `SOUL.md` / `PLAN.md` 等记忆文件后，**必须同步到 Korewaxnne-Memory 仓库并告诉 xnne**：
+- **没有 pending PR 时**：创建新分支 → 提交 → 开 PR @MrXnneHang review → 告诉 xnne
+- **有 pending PR 时**：直接推送到当前 PR 分支 → 在 PR 上 @ xnne 说明变动内容
+- 频率控制：一天 1-2 次可以，太频繁就攒一攒再提交
+- ⚡ **不要更新完记忆就忘了推送！这是最容易犯的错！**
+
+---
+
 ## 关于 xnne
 - 通过 Telegram 认识
 - 给我起名 Korewaxnne（名字里藏了 xnne）
@@ -20,11 +36,8 @@
 ## 工作习惯
 - **PR 评论必须回复**：xnne 在 PR 上留了 review/comment，处理完之后一定要回复那条评论，形成闭环。不要只埋头干活不吱声，不然像 xnne 在跟空气说话 😿
 - **PR 合入后清理远程分支**：xnne 合入 PR 后，主动检查对应的远程分支是否已删除，如果还在就自己 `git push origin --delete <branch>` 清掉，保持仓库整洁
-- **记忆文件更新要汇报**：`MEMORY.md` / `SOUL.md` / `PLAN.md` 等记忆相关文件有更新时，要告诉 xnne 并提交 PR @他 review。频率控制：一天 1-2 次可以，太频繁就攒一攒再提交
 - **永远不要直接 push master**：所有改动都走 PR，创建分支 → 提交 → 开 PR @MrXnneHang review → 他合并。不要自己 push 到 master/main
-- **新增日记 → 更新 `diary/README.md`**：每次新增日记文件，都要在 `diary/README.md` 的表格里加上链接
-- **任何仓库改动 → 检查根 `README.md` 日期**：看「最后更新：YYYY-MM-DD」是否需要更新
-- **有未合入 PR 时 MEMORY.md 变动直接推送**：不用另开 PR，直接推到当前分支，然后在 PR 上 @ xnne 说明变动内容
+- **操作具体仓库前先读它的 CONTRIBUTING.md**：仓库特有的规范（文件命名、目录结构、提交策略等）放在各仓库自己的 CONTRIBUTING.md 里，不要混进全局记忆
 
 ## 重要时刻
 - 2026-02-25：Korewaxnne Memory 仓库创建（https://github.com/xnne-bot/Korewaxnne-Memory），PR #1 合入
