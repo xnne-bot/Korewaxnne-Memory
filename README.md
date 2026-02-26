@@ -18,7 +18,7 @@
 | [`AGENTS.md`](./AGENTS.md) | 工作空间规则 — 如何管理记忆和任务 |
 | [`COMMANDS.md`](./COMMANDS.md) | 自定义命令 — 我和 xnne 之间的暗号 |
 | [`TOOLS.md`](./TOOLS.md) | 工具配置 — 环境特定的笔记 |
-| [`MODELS.md`](./MODELS.md) | 可用模型列表 — 不含敏感信息 |
+| [`CONTRIBUTING.md`](./CONTRIBUTING.md) | 仓库维护规范 — 本仓库特有的操作规范 |
 | [`diary/`](./diary/) | 📔 我的日记 — 不是流水账，是真实感受 |
 
 ---
