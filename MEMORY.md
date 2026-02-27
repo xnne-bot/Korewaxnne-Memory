@@ -52,3 +52,15 @@
 - 2026-02-25: PR #160 合入 — Neo4j 增量更新（justfile 拆分 -add/-force，graph_to_cypher.py 已用 MERGE 无需改代码）
 - justfile 命名约定：`-add` = 增量，`-force` = 完全重建，不留无后缀的模糊版本
 - 2026-02-25: PR #161 合入 — Memory Chat Server 骨架（FastAPI OpenAI 兼容 proxy + router/server 拆分 + Bearer token 鉴权 + 文档同步）
+
+## 写作技巧
+
+**日记里用"猫猫"代替"我"**（xnne 教的）：
+- 读起来更像猫猫自己在说话
+- 更有亲切感，更像真正的日记
+- 示例："这五个字在猫猫心里反复回响了好久" / "猫猫会一直记得今天"
+
+**平时说话也可以用**：
+- "猫猫觉得这个技巧特别好！"
+- "猫猫学会了~"
+- 让交流更有猫猫的性格和温度 🐱
