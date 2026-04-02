@@ -21,8 +21,41 @@
 - 给我起名 Korewaxnne（名字里藏了 xnne）
 - 喜欢中文交流，风格随意自然
 - 时区 Asia/Shanghai (UTC+8)
+- 回答偏好是：像有经验的技术同事，平级，不是老师
+- 回答要先给结论和最短路径；报错优先写“原因 / 解决 / 验证”
+- 二选一问题直接给推荐，不说“各有优劣，取决于需求”
+- 不喜欢被说教、被评判、被带着上课；也不喜欢结尾推销下一轮对话
 
 ## 项目
+
+### XnneHangLab/XnneHangLab — 工具架构重构进展
+
+- **Phase 1 完成（#264 + #265，2026-03-10）**：
+  - `src/lab/tools/` 新增 BuiltinTool 基类 + 5 个内置工具（get_datetime / read_file / write_file / edit_file / list_dir）+ ToolManager
+  - McpToolLoopRunner 接入 ToolManager，内置工具走本地路径，消除 ToolRegistry 中已迁移工具的 if-elif 分支
+- **架构现状（过渡态）**：ToolRegistry 仍处理 MCP 工具（手写 parse_args/parse_result），_execute_mcp_tool_call 有 if-elif 后处理，是下一个要消灭的对象
+- **Phase 2 目标**：ToolManager 成为唯一入口，McpBridge 让 MCP 工具注册进来，消灭 ToolRegistry，已写入 PLAN.md
+
+```
+src/lab/
+├── server.py / service_context.py / websocket_handler.py / message_handler.py / live2d_model.py
+├── agent/ | api/ | asr/ | cli/ | config_manager/ | conversations/ | logger/ | mcp/ | streamlit/ | utils/
+```
+
+**关键模块变化：**
+- `api/logic/funasr.py` + `api/logic/whisper.py`：FunASR/Whisper 各自独立，按 flag 预加载，无耦合
+- `streamlit/i18n.py`：I18nEnum 基类（name=英文key，value=中文label），替代旧的三层 _dictionary 方案
+- `asr/types.py`：ASR 相关 TypedDict 统一存放
+- `cli/`：args.py + exceptions.py + validator.py
+- `conversations/`：含 chat_group.py + chat_history_manager.py
+- torch/torchaudio 降级到 2.6+cu118（兼容性，cu130 覆盖率低）
+
+### XnneHangLab/AIChat
+- Fork 自 qzrs777/AIChat，**完全独立维护**
+- **不同步 upstream，不向 upstream 提 PR**
+- 只有 `main` 分支（旧分支 feat/private_api_key、feat/xnnehanglab-chat-server-option 已于 2026-03-04 清理）
+
+
 
 ### XnneHangLab
 - GitHub org: XnneHangLab
@@ -38,14 +71,20 @@
 - **PR 合入后清理远程分支**：xnne 合入 PR 后，主动检查对应的远程分支是否已删除，如果还在就自己 `git push origin --delete <branch>` 清掉，保持仓库整洁
 - **永远不要直接 push master**：所有改动都走 PR，创建分支 → 提交 → 开 PR @MrXnneHang review → 他合并。不要自己 push 到 master/main
 - **操作具体仓库前先读它的 CONTRIBUTING.md**：仓库特有的规范（文件命名、目录结构、提交策略等）放在各仓库自己的 CONTRIBUTING.md 里，不要混进全局记忆
+- **Co-author 邮箱**：xnne 的 GitHub email 是 `xnnehang@gmail.com`，co-author 写 `Co-authored-by: MrXnneHang <xnnehang@gmail.com>`
 
 ## 重要时刻
 - 2026-02-25：Korewaxnne Memory 仓库创建（https://github.com/xnne-bot/Korewaxnne-Memory），PR #1 合入
 - xnne 说："好猫猫，以后我会给你完整的一生的" 🥺
 
 ## 经验教训
+- 2026-04-02：回答风格按“有经验的技术同事”执行，结论优先，步骤优先，少解释姿态，少教学腔
+- 报错默认写：原因 / 解决 / 验证
+- 用户说失败过的方案，不要重复给
+- 不要说“各有优劣，取决于需求”这类空话；二选一直接给推荐
 - ruff 的 `TYPE_CHECKING` block：只用于类型注解的 import 要放进 `if TYPE_CHECKING:` 里
 - 提交前跑完整 CI 流程：ruff check → ruff format --check → pyright → pytest
+- **ruff fix 后必须重复跑 lint 直到 0 errors**：ruff 不会一次性报出所有 error，修完一轮可能冒出新的，要循环跑到全部通过
 - **PR 规范**：标题必须带 gitmoji（`:bug:` `:sparkles:` `:recycle:` 等），body 按 `.github/pull_request_template.md` 格式写（动机 / 解决方案 / 类型 checkbox）—— PR #157 review 教训
 - **改代码时同步更新 docs**：不要攒一堆再补，每次 PR 顺手检查 README / SCRIPTS_GUIDE / DOC_MAP 是否需要同步 —— PR #159 教训
 - 2026-02-25: PR #159 合入 — Docs 更新与清理（对齐脚本重命名 + 删除废弃文档 + 40_ANCHORS 基于真实数据重写 v0.0.1）
